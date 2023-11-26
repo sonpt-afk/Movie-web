@@ -1,81 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>netflix clone</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./assets/css/base.css" type="">
-    <link rel="stylesheet" href="./assets/css/grid.css">
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <title>Vite + React</title>
   </head>
   <body>
-    <div class="app">
-      <div class="header">
-        <div class="grid wide"></div>
-        <nav class="header__navbar">
-          <ul class="header__navbar-list">
-            <li class="header__navbar-item">
-              <a href="">
-                <img class='logo' src="./assets/images/netflixLogo.jfif" alt="" />
-              </a>
-            </li>
-            <li class="header__navbar-item"><a href="">Trang chủ</a></li>
-            <li class="header__navbar-item"><a href="">Phim T.hình</a></li>
-            <li class="header__navbar-item"><a href="">Phim</a></li>
-            <li class="header__navbar-item"><a href="">Mới & Phổ biến</a></li>
-            <li class="header__navbar-item">
-              <a href="">Danh sách của tôi</a>
-            </li>
-            <li class="header__navbar-item">
-              <a href="">Duyệt tìm theo ngôn ngữ</a>
-            </li>
-          </ul>
-            <ul class="header__navbar-list-right">
-                <li class="header__navbar-item ">
-                <a href="">
-                    <i class="fas fa-search"></i>
-                </a>
-                </li>
-                <li class="header__navbar-item header__navbar-item--has-notify">
-                <a href="">
-                    <i class="fas fa-bell"></i>
-                </a>
-                <div class="header__notify">
-                    <header class="header__notify-header">
-                        <h3>Thông báo mới nhận</h3>
-
-                    </header>
-                    <ul class="header__notify-list">
-                        <li class="header__notify-item header__notify-item--viewed">
-                            <a href="" class="header__notify-link">
-                                <img src="https://stat.ameba.jp/user_images/20220928/17/kuroame-amigo/b2/85/p/o0712088415180987424.png" alt="" class="header__notify-img">
-                                <div class="header__notify-info">
-                                    <span class="header__notify-name">Iphone 14 chính hãng</span>
-                                    <span class="header__notify-description">Iphone 14 chính hãng giá chỉ từ 20 triệu đồng</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                </li>
-                <li class="header__navbar-item header__navbar-user">
-                <a href="">
-                    <i class="fas fa-user"></i>
-                    <i class="fas fa-angle-down"></i>
-                </a>
-                </li>
-        </nav>
-      </div>
-      <div class="body"></div>
-      <div class="footer"></div>
-    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -71,6 +71,7 @@ body {
     transform: scale(var(--growth-to));
   }
 }
+
 /* MODAL */
 .modal {
   position: fixed;
