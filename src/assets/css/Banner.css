@@ -1,0 +1,39 @@
+.banner {
+  color: #fff;
+  object-fit: contain;
+  height: 500px;
+}
+.banner__contents {
+  padding: 30px 500px 40px 50px;
+}
+.banner__contents-title {
+  margin-top: 65px;
+  font-size: 10rem;
+  font-weight: 800;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.banner__buttons {
+  display: flex;
+  gap: 30px;
+}
+.banner__button {
+  width: 118px;
+  height: 39px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.5rem;
+}
+.first-btn {
+}
+.second-btn {
+  width: 180px;
+}
+.banner__button:hover {
+  background-color: #000;
+  color: #fff;
+}
+.banner__description {
+  font-size: 2rem;
+  font-weight: normal;
+}

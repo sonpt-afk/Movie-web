@@ -6,17 +6,19 @@
   height: 45px;
   margin: 0 30px;
 }
-i {
-  font-size: 2.4rem;
-}
-.fa-angle-down {
-  font-size: 15px;
+.active {
+  font-weight: bold;
 }
 .header {
   height: var(--header-height);
-  background-color: var(--black-color);
+  background-color: transparent;
   position: fixed;
   top: 0;
+  width: 100%;
+  z-index: 99;
+}
+.header-icon {
+  font-size: 1.2em;
 }
 .header__navbar {
   display: flex;
@@ -159,15 +161,16 @@ i {
   cursor: pointer;
   z-index: 99;
 }
+
 .header__navbar-search-input {
   position: absolute;
-  left: 43px;
-  right: 42px;
+  right: 40px;
   border: none;
   outline: none;
-  background-color: #000;
+  background-color: #fff;
   z-index: 99;
-  color: #fff;
+  color: #000;
+  height: 25px;
 }
 
 .header__notify {
@@ -175,7 +178,7 @@ i {
   top: 53px;
   right: 0;
   width: 404px;
-  height: 300px;
+  height: 400px;
   cursor: default;
   background: var(--black-color);
   transform-origin: 90% top;
@@ -185,6 +188,7 @@ i {
   border: 1px solid #ccc;
   border-top: 5px solid #ccc;
   display: none;
+  overflow: scroll;
 }
 
 .header__notify::before {
@@ -206,7 +210,10 @@ i {
   width: 100%;
   border-bottom: 1px solid #ccc;
 }
-.header__notify-item__img {
+.header__navbar-item--has-notify:hover .header__notify {
+  display: block;
+}
+.header__notify-img {
   width: 12.5rem;
   height: 7.6rem;
   object-fit: cover;
@@ -230,9 +237,6 @@ i {
 .header__notify-time {
   font-weight: 400;
   color: #ccc;
-}
-.header__navbar-item--has-notify:hover .header__notify {
-  display: block;
 }
 
 .header__navbar-item,
@@ -258,15 +262,11 @@ i {
 
 .main {
 }
+
 .main-film__featured {
-  height: 430px;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  width: 100vw;
   z-index: 0;
   position: relative;
-  background-image: url("https://marketresearchtelecast.com/wp-content/uploads/2021/06/Stranger-Things-Season-4-Release-Date-and-Everything-You-Need.jpg");
 }
 
 .main-film__btn {

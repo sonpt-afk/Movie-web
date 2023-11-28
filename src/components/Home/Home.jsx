@@ -1,11 +1,27 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faMagnifyingGlass,
+  faAngleDown,
+} from "@fortawesome/free-solid-svg-icons";
 import "~/assets/css/grid.css";
 import "~/assets/css/base.css";
 import "~/assets/css/responsive.css";
 import "~/assets/css/Home.css";
+import "./MoviesRow";
+import { useState, useEffect } from "react";
+import MoviesRow from "./MoviesRow";
+import requests from "~/requests";
+import Banner from "./Banner";
 function Home() {
+  const [input, setInput] = useState("");
+  const [poster, setPoster] = useState([]);
+
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
+
   return (
     <>
       <div className="app">
@@ -22,7 +38,7 @@ function Home() {
                   />
                 </a>
               </li>
-              <li className="header__navbar-item">
+              <li className="header__navbar-item active">
                 <a href="">Trang chủ</a>
               </li>
               <li className="header__navbar-item">
@@ -43,13 +59,22 @@ function Home() {
             </ul>
             <ul className="header__navbar-list-right">
               <li className="header__navbar-item ">
+                <input
+                  value={input}
+                  placeholder="Search "
+                  className="header__navbar-search-input"
+                  onChange={handleInputChange}
+                ></input>
                 <a href="">
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  <FontAwesomeIcon
+                    className="header-icon"
+                    icon={faMagnifyingGlass}
+                  />
                 </a>
               </li>
               <li className="header__navbar-item header__navbar-item--has-notify">
                 <a href="">
-                  <i className="fas fa-bell"></i>
+                  <FontAwesomeIcon className="header-icon" icon={faBell} />
                 </a>
                 <div className="header__notify">
                   <header className="header__notify-header">
@@ -59,16 +84,118 @@ function Home() {
                     <li className="header__notify-item header__notify-item--viewed">
                       <a href="" className="header__notify-link">
                         <img
-                          src="https://stat.ameba.jp/user_images/20220928/17/kuroame-amigo/b2/85/p/o0712088415180987424.png"
+                          src="https://th.bing.com/th/id/OIP.aRje5vJud3JlUnpPRE28owAAAA?rs=1&pid=ImgDetMain"
                           alt=""
                           className="header__notify-img"
                         />
                         <div className="header__notify-info">
                           <span className="header__notify-name">
-                            Iphone 14 chính hãng
+                            Stranger Things
                           </span>
                           <span className="header__notify-description">
-                            Iphone 14 chính hãng giá chỉ từ 20 triệu đồng
+                            Season 5 now available
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li className="header__notify-item header__notify-item--viewed">
+                      <a href="" className="header__notify-link">
+                        <img
+                          src="https://th.bing.com/th/id/OIP.aRje5vJud3JlUnpPRE28owAAAA?rs=1&pid=ImgDetMain"
+                          alt=""
+                          className="header__notify-img"
+                        />
+                        <div className="header__notify-info">
+                          <span className="header__notify-name">
+                            Stranger Things
+                          </span>
+                          <span className="header__notify-description">
+                            Season 5 now available
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li className="header__notify-item header__notify-item--viewed">
+                      <a href="" className="header__notify-link">
+                        <img
+                          src="https://th.bing.com/th/id/OIP.aRje5vJud3JlUnpPRE28owAAAA?rs=1&pid=ImgDetMain"
+                          alt=""
+                          className="header__notify-img"
+                        />
+                        <div className="header__notify-info">
+                          <span className="header__notify-name">
+                            Stranger Things
+                          </span>
+                          <span className="header__notify-description">
+                            Season 5 now available
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li className="header__notify-item header__notify-item--viewed">
+                      <a href="" className="header__notify-link">
+                        <img
+                          src="https://th.bing.com/th/id/OIP.aRje5vJud3JlUnpPRE28owAAAA?rs=1&pid=ImgDetMain"
+                          alt=""
+                          className="header__notify-img"
+                        />
+                        <div className="header__notify-info">
+                          <span className="header__notify-name">
+                            Stranger Things
+                          </span>
+                          <span className="header__notify-description">
+                            Season 5 now available
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li className="header__notify-item header__notify-item--viewed">
+                      <a href="" className="header__notify-link">
+                        <img
+                          src="https://th.bing.com/th/id/OIP.aRje5vJud3JlUnpPRE28owAAAA?rs=1&pid=ImgDetMain"
+                          alt=""
+                          className="header__notify-img"
+                        />
+                        <div className="header__notify-info">
+                          <span className="header__notify-name">
+                            Stranger Things
+                          </span>
+                          <span className="header__notify-description">
+                            Season 5 now available
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li className="header__notify-item header__notify-item--viewed">
+                      <a href="" className="header__notify-link">
+                        <img
+                          src="https://th.bing.com/th/id/OIP.aRje5vJud3JlUnpPRE28owAAAA?rs=1&pid=ImgDetMain"
+                          alt=""
+                          className="header__notify-img"
+                        />
+                        <div className="header__notify-info">
+                          <span className="header__notify-name">
+                            Stranger Things
+                          </span>
+                          <span className="header__notify-description">
+                            Season 5 now available
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li className="header__notify-item header__notify-item--viewed">
+                      <a href="" className="header__notify-link">
+                        <img
+                          src="https://th.bing.com/th/id/OIP.aRje5vJud3JlUnpPRE28owAAAA?rs=1&pid=ImgDetMain"
+                          alt=""
+                          className="header__notify-img"
+                        />
+                        <div className="header__notify-info">
+                          <span className="header__notify-name">
+                            Stranger Things
+                          </span>
+                          <span className="header__notify-description">
+                            Season 5 now available
                           </span>
                         </div>
                       </a>
@@ -78,14 +205,55 @@ function Home() {
               </li>
               <li className="header__navbar-item header__navbar-user">
                 <a href="">
-                  <i className="fas fa-user"></i>
-                  <i className="fas fa-angle-down"></i>
+                  <FontAwesomeIcon className="header-icon" icon={faAngleDown} />
                 </a>
               </li>
             </ul>
           </nav>
         </div>
-        <div className="body"></div>
+        <div className="body">
+          {/* <div className="main-film__featured">
+            <img
+              src="https://i.pinimg.com/736x/d1/49/8d/d1498d73f0ded562696baf807bb19ef8.jpg"
+              alt=""
+            />
+          </div> */}
+          <Banner></Banner>
+          <div>
+            <MoviesRow
+              title="Netflix Originals"
+              fetchUrl={requests.fetchNetflixOriginals}
+            ></MoviesRow>
+            <MoviesRow
+              title="Trending Now"
+              fetchUrl={requests.fetchTrending}
+            ></MoviesRow>
+            <MoviesRow
+              title="Top Rated"
+              fetchUrl={requests.fetchTopRated}
+            ></MoviesRow>
+            <MoviesRow
+              title="Action Movies"
+              fetchUrl={requests.fetchActionMovies}
+            ></MoviesRow>
+            <MoviesRow
+              title="Comedy Movies"
+              fetchUrl={requests.fetchComedyMovies}
+            ></MoviesRow>
+            <MoviesRow
+              title="Horror Movies"
+              fetchUrl={requests.fetchHorrorMovies}
+            ></MoviesRow>
+            <MoviesRow
+              title="Romance Movies"
+              fetchUrl={requests.fetchRomanceMovies}
+            ></MoviesRow>
+            <MoviesRow
+              title="Documentaries"
+              fetchUrl={requests.fetchDocumentaries}
+            ></MoviesRow>
+          </div>
+        </div>
         <div className="footer"></div>
       </div>
     </>
