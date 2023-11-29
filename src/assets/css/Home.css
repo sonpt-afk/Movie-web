@@ -11,7 +11,7 @@
 }
 .header {
   height: var(--header-height);
-  background-color: transparent;
+  /* background-color: transparent; */
   position: fixed;
   top: 0;
   width: 100%;
@@ -23,8 +23,12 @@
 .header__navbar {
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
 }
-
+.navbar-scrolled {
+  background-color: black;
+}
 .header__navbar-list {
   list-style-type: none;
   padding-left: 0;
@@ -48,8 +52,11 @@
 .header__navbar-item a {
   color: white; /* Sets the text color to white */
   text-decoration: none;
+  transition: color 0.3s ease;
 }
-
+.header__navbar-item a:hover {
+  color: #ccc; /* Sets the text color to white */
+}
 .header__navbar-user-img {
   width: 37px;
   height: 36px;

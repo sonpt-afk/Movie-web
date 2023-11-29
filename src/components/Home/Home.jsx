@@ -14,14 +14,47 @@ import { useState, useEffect } from "react";
 import MoviesRow from "./MoviesRow";
 import requests from "~/requests";
 import Banner from "./Banner";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import appSlice from "~/appSlice";
 function Home() {
+  const API_KEY = "36ee3b04e4f7ab80bdffd6e940ec21b1";
+
   const [input, setInput] = useState("");
-  const [poster, setPoster] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
 
+  const moviesList = useSelector((state) => state.app.list);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // useEffect(() => {
+    //   axios({
+    //     method: "GET",
+    //     url: `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${input}`,
+    //   });
+    // }, [searchResult]);
+    setSearchQuery(input);
+  };
+
+  const filteredMovies = moviesList.filter((movie) => {
+    movie.text.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+  const handleScroll = () => {
+    const navbar = document.querySelector(".header__navbar");
+    if (window.scrollY > 20) {
+      navbar.classList.add("navbar-scrolled");
+    } else {
+      navbar.classList.remove("navbar-scrolled");
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  // Clean up the event listener on component unmount
   return (
     <>
       <div className="app">
@@ -65,7 +98,7 @@ function Home() {
                   className="header__navbar-search-input"
                   onChange={handleInputChange}
                 ></input>
-                <a href="">
+                <a href="" onClick={handleSearch}>
                   <FontAwesomeIcon
                     className="header-icon"
                     icon={faMagnifyingGlass}

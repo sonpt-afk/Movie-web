@@ -2,9 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "~/assets/css/MoviesRow.css";
 import axios from "~/axios";
+import Youtube from "react-youtube";
+import movieTrailer from "movie-trailer";
 function MoviesRow({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
-  const base_url = "https://image.tmdb.org/t/p/w500/";
+  const [trailerUrl, setTrailerUrl] = useState("");
+
+  const base_url = "https://image.tmdb.org/t/p/original/";
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
@@ -14,6 +18,27 @@ function MoviesRow({ title, fetchUrl }) {
 
     fetchData();
   }, [fetchUrl]);
+
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+
+  const handleClick = (movie) => {
+    if (trailerUrl) {
+      setTrailerUrl("");
+    } else {
+      movieTrailer(movie?.name || "")
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get("v"));
+        })
+        .catch((error) => console.log(error));
+    }
+  };
   return (
     <div className="movie-row-container">
       <h2>{title}</h2>
@@ -24,10 +49,12 @@ function MoviesRow({ title, fetchUrl }) {
             className="movie-row-poster"
             key={`${movie.id}`}
             src={`${base_url}${movie.poster_path}`}
-            alt=""
+            alt={movie.name}
+            onClick={() => handleClick(movie)}
           />
         ))}
       </div>
+      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
     </div>
   );
 }

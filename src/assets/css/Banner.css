@@ -7,8 +7,8 @@
   padding: 30px 500px 40px 50px;
 }
 .banner__contents-title {
-  margin-top: 65px;
-  font-size: 10rem;
+  margin-top: 167px;
+  font-size: 4rem;
   font-weight: 800;
   padding-bottom: 0;
   margin-bottom: 0;
@@ -23,6 +23,12 @@
   background-color: #fff;
   color: #000;
   font-size: 1.5rem;
+  /* transition: background-color ease 0.4s; */
+}
+.banner__button:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
 }
 .first-btn {
 }
