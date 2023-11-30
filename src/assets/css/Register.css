@@ -32,11 +32,11 @@
     rgba(0, 0, 0, 0.8) 100%
   );
 }
-.header {
+/* .header {
   height: 20%;
   padding: 20px 10px;
   width: 100%;
-}
+} */
 .header-content {
   display: flex;
   justify-content: space-between;

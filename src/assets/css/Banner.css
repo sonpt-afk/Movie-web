@@ -3,15 +3,18 @@
   object-fit: contain;
   height: 500px;
 }
+
 .banner__contents {
   padding: 30px 500px 40px 50px;
+  margin-bottom: 20px;
+  line-height: 1.3;
 }
 .banner__contents-title {
   margin-top: 167px;
   font-size: 4rem;
   font-weight: 800;
   padding-bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 14px;
 }
 .banner__buttons {
   display: flex;
@@ -23,7 +26,6 @@
   background-color: #fff;
   color: #000;
   font-size: 1.5rem;
-  /* transition: background-color ease 0.4s; */
 }
 .banner__button:hover {
   background-color: #000;
@@ -42,4 +44,62 @@
 .banner__description {
   font-size: 2rem;
   font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.main-film__featured {
+  width: 100vw;
+  z-index: 0;
+  position: relative;
+}
+
+.main-film__btn {
+  display: flex;
+  justify-content: space-between;
+  width: 322px;
+  position: absolute;
+  bottom: 80px;
+  left: 52px;
+}
+.btn-play {
+  background-color: #fff;
+  width: 117px;
+  height: 40px;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  z-index: 1;
+  border-radius: 5px;
+}
+.btn-info {
+  background-color: #63605d;
+  width: 200px;
+  height: 43px;
+  cursor: pointer;
+  z-index: 1;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border-radius: 5px;
+  align-items: center;
+}
+.main-film__featured__intro {
+  color: white;
+  position: absolute;
+  left: 48px;
+  top: 166px;
+  max-width: 430px;
+}
+.main-film__featured__intro h1 {
+  font-family: "Young Serif";
+  font-weight: 400;
+  font-size: 40px;
 }

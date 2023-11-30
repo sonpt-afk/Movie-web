@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-page {
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  color: white;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.profile-age-title {
+  font-size: 4rem;
+  font-weight: 800;
+}
+h1 {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.profile-container-ava-email {
+  position: relative;
+  right: 40px;
+  margin-bottom: 30px;
+}
+.profile-container-ava-email img {
+  position: relative;
+  top: 14px;
+}
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  gap: 25px;
+}
+.profile-container-img {
+  height: 170px;
+}
+.profile-email {
+  background-color: rgb(161, 161, 161);
+  height: 40px;
+  color: #fff;
+  padding: 10px;
+  width: 500px;
+}
+img {
+  width: 100px;
+}
+
+.profile-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.profile-list-item-subbtn {
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  color: white;
+  border: 1px solid red;
+  margin-top: 16px;
+  position: relative;
+  right: 40px;
+  bottom: 20px;
+}
+.profile-list-item-subbtn:hover {
+  cursor: pointer;
+}
+
+.profile-list-item-current-pack {
+  width: 150px;
+  height: 30px;
+  background-color: rgb(112, 105, 105);
+  color: white;
+  margin-top: 16px;
+  border: 1px solid #ccc;
+  position: relative;
+  right: 40px;
+  bottom: 20px;
+}
+.profile-list-item-current-pack:hover {
+  cursor: pointer;
+}
+.profile-signout-btn {
+  width: 500px;
+  height: 50px;
+  background-color: red;
+  border: 1px solid red;
+  color: #fff;
+  font-weight: 800;
+}
+.profile-signout-btn:hover {
+  cursor: pointer;
+}
+
+.profile-current-plan {
+  margin-bottom: 20px;
+}

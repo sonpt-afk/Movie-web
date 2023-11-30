@@ -19,29 +19,25 @@ function Banner() {
     fetchData();
   }, []);
   return (
-    <div>
-      <header
-        className="banner"
-        style={{
-          backgroundSize: "cover",
-          backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
-          backgroundPosition: "center center",
-        }}
-      >
-        <div className="banner__contents">
-          <h1 className="banner__contents-title">
-            {movie?.title || movie?.name || movie?.original_name}
-          </h1>
+    <div
+      className="banner"
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundPosition: "center center",
+      }}
+    >
+      <div className="banner__contents">
+        <h1 className="banner__contents-title">
+          {movie?.title || movie?.name || movie?.original_name}
+        </h1>
 
-          <h1 className="banner__description">{movie?.overview}</h1>
-          <div className="banner__buttons">
-            <button className="banner__button first-btn">Phát</button>
-            <button className="banner__button second-btn">
-              Thông tin khác
-            </button>
-          </div>
+        <h1 className="banner__description">{movie?.overview}</h1>
+        <div className="banner__buttons">
+          <button className="banner__button btn-play">Phát</button>
+          <button className="banner__button btn-info">Thông tin khác</button>
         </div>
-      </header>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,9 @@
+import { useRef, useState } from "react";
 import "~/assets/css/Register.css";
+import Login from "./Login";
 function Register() {
+  const [signin, setSignin] = useState(false);
+
   return (
     <>
       <div className="page">
@@ -20,29 +24,48 @@ function Register() {
               </g>
             </svg>
             <div className="header-right">
-              <button> Đăng nhập</button>
+              <button
+                onClick={() => {
+                  setSignin(true);
+                }}
+              >
+                {" "}
+                Đăng nhập
+              </button>
             </div>
           </div>
         </div>
-        <div className="main">
-          {/* <div className="main-content"> */}
-          <div className="main-title">
-            <h1>
-              Enjoy big movies, hit series and more from <span>70,000 ₫.</span>{" "}
-            </h1>
+        {signin ? (
+          <Login />
+        ) : (
+          <div className="main">
+            {/* <div className="main-content"> */}
+            <div className="main-title">
+              <h1>
+                Enjoy big movies, hit series and more from{" "}
+                <span>70,000 ₫.</span>{" "}
+              </h1>
+            </div>
+            <div className="main-subtitle">
+              <h3>Join today. Cancel anytime. .</h3> <br />
+              <h4>
+                Ready to watch? Enter your email to create or restart your
+                membership.
+              </h4>
+              <form action="">
+                <input type="text" placeholder="Địa chỉ email" />
+                <button
+                  type="submit"
+                  onClick={() => {
+                    setSignin(true);
+                  }}
+                >
+                  Bắt đầu
+                </button>
+              </form>
+            </div>
           </div>
-          <div className="main-subtitle">
-            <h3>Join today. Cancel anytime. .</h3> <br />
-            <h4>
-              Ready to watch? Enter your email to create or restart your
-              membership.
-            </h4>
-            <form action="">
-              <input type="text" placeholder="Địa chỉ email" />
-              <button type="submit">Bắt đầu</button>
-            </form>
-          </div>
-        </div>
+        )}
       </div>
       {/* </div> */}
     </>
