@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from 'src/userSlice'
 import Profile from './Home/Profile'
 function App() {
-  const user = useSelector((state) => state.user.user)
+  // const user = useSelector((state) => state.user.user)
+  const user = null
   const dispatch = useDispatch()
 
   useEffect(() => {
