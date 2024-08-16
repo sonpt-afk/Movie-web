@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import "~/assets/css/MoviesRow.css";
-import axios from "~/axios";
+import "src/assets/css/MoviesRow.css";
+import axios from "src/axios";
 import Youtube from "react-youtube";
 import movieTrailer from "movie-trailer";
 function MoviesRow({ title, fetchUrl }) {

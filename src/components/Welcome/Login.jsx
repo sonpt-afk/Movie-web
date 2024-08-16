@@ -1,5 +1,5 @@
 import React from "react";
-import "~/assets/css/Login.css";
+import "src/assets/css/Login.css";
 import { useRef } from "react";
 import { auth } from "../../firebase";
 function Login() {
