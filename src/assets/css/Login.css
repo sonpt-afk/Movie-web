@@ -4,19 +4,40 @@
   box-sizing: border-box;
 }
 
+.page {
+  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/9dcffac0-8f0c-457b-92ee-6402c28f7a78/VN-en-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  position: relative;
+}
+
+.ant-spin-nested-loading {
+  width: 100%;
+  height: 100%;
+
+  .ant-spin-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+  }
+}
+
 .container {
   position: absolute;
   top: 25%;
   left: 50%;
-  width: 445px;
-  height: 440px;
   background-color: #000;
   transform: translate(-50%, -10%);
-  padding: 60px 67px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
 }
 
-form {
-}
 .form-input-text {
   width: 320px;
   height: 55px;
@@ -26,12 +47,11 @@ form {
   border-radius: 5px;
   margin: 10px 0;
   padding-left: 20px;
+  font-size: medium;
 }
 .form-input-checkbox {
   width: 16px;
   height: 16px;
-  position: relative;
-  top: 3px;
 }
 
 form > label {
@@ -40,14 +60,12 @@ form > label {
 }
 .form-help {
   font-size: 1.5rem;
-  position: absolute;
   right: 67px;
 }
 .container-footer {
   color: #cccccca6;
   font-size: 1.5rem;
-  position: absolute;
-  left: 67px;
+
   margin-top: 20px;
 }
 
@@ -67,4 +85,12 @@ form > label {
 .signin-btn {
   width: 320px;
   margin-bottom: 10px;
+}
+
+.signup-link {
+  font-weight: 600;
+}
+.signup-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

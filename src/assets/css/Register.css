@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .page {
-  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/9dcffac0-8f0c-457b-92ee-6402c28f7a78/VN-en-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/d1532433-07b1-4e39-a920-0f08b81a489e/9dcffac0-8f0c-457b-92ee-6402c28f7a78/VN-en-20231120-popsignuptwoweeks-perspective_alpha_website_large.jpg');
   height: 100vh;
   width: 100%;
   background-position: center;
@@ -20,17 +20,25 @@
   padding-left: 20px;
 }
 
+.ant-spin-nested-loading {
+  width: 100%;
+  height: 100%;
+
+  .ant-spin-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+  }
+}
+
 .page-gradient {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   z-index: 1;
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.8) 0,
-    rgba(0, 0, 0, 0) 60%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
 }
 /* .header {
   height: 20%;

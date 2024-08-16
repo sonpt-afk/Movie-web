@@ -1,85 +1,110 @@
-import React from "react";
-import "src/assets/css/Login.css";
-import { useRef } from "react";
-import { auth } from "../../firebase";
+import React, { useState } from 'react'
+import 'src/assets/css/Login.css'
+import { useRef } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate, Link } from 'react-router-dom'
+import { login } from 'src/services/auth'
+import { usernameRule, emailRule, passwordRule, rePasswordRule } from 'src/common/rules'
+import { Button, Checkbox, Form, Input } from 'antd'
+import { Spin } from 'antd'
+
 function Login() {
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const register = (e) => {
-    e.preventDefault();
-    console.log("register");
+  const [loading, setLoading] = useState(false)
 
-    auth
-      .createUserWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
-      .then((authUser) => {
-        console.log(authUser);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const nav = useNavigate()
+  const onFinish = async (values) => {
+    setLoading(true) // Set loading to true when API call starts
 
-  const login = (e) => {
-    e.preventDefault();
-    auth
-      .signInWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
-      .then((authUser) => {
-        console.log(authUser);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    try {
+      var data = await login(values)
+      const token = data.jwt
+      const user = data.user
+      localStorage.setItem('token', token)
+      localStorage.setItem('user', JSON.stringify(user))
+      toast.success('Logged in successfully!')
+      nav('/home')
+    } catch (err) {
+      toast.error('Login failed, try again please !')
+
+      console.log(err)
+    }
+    setLoading(false) // Set loading to false if API call fails
+  }
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo)
+  }
+
+  // const login = (e) => {
+  //   e.preventDefault()
+  //   auth
+  //     .signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
+  //     .then((authUser) => {
+  //       toast.success('Logged in successfully!')
+  //     })
+  //     .catch((error) => {
+  //       toast.error('Login failed, try again please !')
+  //     })
+  // }
   return (
     <>
-      <div className="container">
-        <h1>Sign In</h1>
-        <form action="">
-          <input
-            className="form-input-text"
-            type="text"
-            name="email"
-            placeholder="Email or phone number"
-            ref={emailRef}
-          />
-          <input
-            className="form-input-text"
-            type="password"
-            name="password"
-            placeholder="Password"
-            ref={passwordRef}
-          />
-          <button className="signin-btn" type="submit" onClick={login}>
-            Sign In
-          </button>
-          <input
-            className="form-input-checkbox"
-            id="remember"
-            type="checkbox"
-          />
-          <label htmlFor="remember"> Remember me</label>
+      <Spin
+        className='spin-custom'
+        spinning={loading}
+        // indicator={<LoadingOutlined />}
+        size='large'
+      >
+        <div className='page'>
+          <div className='container  max-w-1/2 rounded-lg	 bg-white my-6 p-2 flex align-center justify-center  h-2/4	w-2/3	 mx-auto'>
+            <Form
+              className='	flex flex-col	'
+              name='basic'
+              labelCol={{
+                span: 8
+              }}
+              wrapperCol={{
+                span: 16
+              }}
+              initialValues={{
+                remember: true
+              }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              autoComplete='off'
+            >
+              <h1 className='text-center text-3xl mb-4	font-bold	'>Sign In</h1>
 
-          <a className="form-help">Need help?</a>
-        </form>
-        <div className="container-footer">
-          <span className="container-footer-question">New to Netflix?</span>
-          <a href="/" className="signup-link" onClick={register}>
-            Sign up now
-          </a>
-          <p className="container-footer-more">
-            This page is protected by Google reCAPTCHA to ensure you are not a
-            bot. <a href="">Learn more</a> .
-          </p>
+              <Form.Item label='Email' name='identifier' rules={emailRule}>
+                <Input />
+              </Form.Item>
+
+              <Form.Item label='Password' name='password' rules={passwordRule}>
+                <Input.Password />
+              </Form.Item>
+
+              <Form.Item
+                wrapperCol={{
+                  offset: 8,
+                  span: 16
+                }}
+              >
+                <Button type='primary' htmlType='submit'>
+                  Đăng nhập
+                </Button>
+              </Form.Item>
+              <h4 className='my-5 	'>
+                <span className='container-footer-question text-xl text-red-600'>New to Netflix?</span>
+                <Link to='/' className='signup-link text-xl mx-3'>
+                  Sign up now
+                </Link>
+              </h4>
+            </Form>
+          </div>
         </div>
-      </div>
+      </Spin>
+      <ToastContainer />
     </>
-  );
+  )
 }
 
-export default Login;
+export default Login
