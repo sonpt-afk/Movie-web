@@ -15,7 +15,7 @@ import Navbar from './Navbar'
 import { useSelector, useDispatch } from 'react-redux'
 import userSlice from 'src/userSlice'
 function Home() {
-  const API_KEY = '36ee3b04e4f7ab80bdffd6e940ec21b1'
+  const API_KEY = import.meta.env.REACT_APP_API_KEY
 
   // Clean up the event listener on component unmount
   return (

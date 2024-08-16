@@ -8,6 +8,14 @@ export default defineConfig({
   server: {
     port: 3000
   },
+  build: {
+    outDir: 'build',
+    rollupOptions: {
+      input: {
+        main: 'index.html'
+      }
+    }
+  },
   css: {
     devSourcemap: true
   },
