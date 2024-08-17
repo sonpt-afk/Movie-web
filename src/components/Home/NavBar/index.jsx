@@ -11,8 +11,7 @@ const NavBar = ({ onSearch, isScrolled }) => {
 
   return (
     <motion.div
-    className={navBackground}
-
+      className={navBackground}
       initial='hidden'
       animate='visible'
       exit='hidden'

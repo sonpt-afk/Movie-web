@@ -55,7 +55,7 @@ function Login() {
         size='large'
       >
         <div className='page'>
-          <div className='container  max-w-1/2 rounded-lg	 bg-white my-6 p-2 flex align-center justify-center  h-2/4	w-2/3	 mx-auto'>
+          <div className='container  max-w-1/4 rounded-lg	 bg-white my-6 p-2 flex align-center justify-center  h-1/3	w-1/3	 mx-auto'>
             <Form
               className='	flex flex-col	'
               name='basic'
@@ -72,7 +72,7 @@ function Login() {
               onFinishFailed={onFinishFailed}
               autoComplete='off'
             >
-              <h1 className='text-center text-3xl mb-4	font-bold	'>Sign In</h1>
+              <h1 className='text-center text-5xl mb-10	font-bold	'>Sign In</h1>
 
               <Form.Item label='Email' name='identifier' rules={emailRule}>
                 <Input />
@@ -88,14 +88,14 @@ function Login() {
                   span: 16
                 }}
               >
-                <Button type='primary' htmlType='submit'>
+                <Button type='primary' htmlType='submit' className=' text-3xl 	'>
                   Đăng nhập
                 </Button>
               </Form.Item>
-              <h4 className='my-5 	'>
-                <span className='container-footer-question text-xl text-red-600'>New to Netflix?</span>
-                <Link to='/' className='signup-link text-xl mx-3'>
-                  Sign up now
+              <h4 className='my-5  '>
+                <span className='container-footer-question text-3xl  text-red-600'>Mới sử dụng Netflix?</span>
+                <Link to='/' className='signup-link text-3xl mx-3'>
+                  Đăng ký ngay
                 </Link>
               </h4>
             </Form>

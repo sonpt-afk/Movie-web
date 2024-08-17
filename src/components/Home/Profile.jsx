@@ -1,12 +1,13 @@
 import React from 'react'
 import 'src/assets/css/Profile.css'
 import { useNavigate } from 'react-router-dom'
-import Navbar from './NavBar/Menu'
+import NavBar from './NavBar'
 const Profile = () => {
   const navigate = useNavigate()
   return (
     <>
-      <Navbar></Navbar>
+      <NavBar></NavBar>
+
       <div className='profile-page'>
         <div className='profile-container'>
           <h1 className='profile-age-title'>Thông tin tài khoản</h1>
@@ -46,7 +47,9 @@ const Profile = () => {
             <button
               className='profile-signout-btn'
               onClick={() => {
-                navigate.push('/')
+                localStorage.clear() // Clear all local storage tokens
+
+                navigate('/')
               }}
             >
               Sign out

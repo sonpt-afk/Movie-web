@@ -4,14 +4,10 @@ import { isTablet, isDesktop } from 'react-device-detect'
 import { Breakpoint, BreakpointValues } from 'src/config/breakpoints'
 
 export default function useDimensions() {
-  const [dimension, setDimension] =
-    useState <
-    Dimension >
-    {
-      height: 0,
-      width: 0
-    }
-
+  const [dimension, setDimension] = useState({
+    height: 0,
+    width: 0
+  })
   useEffect(() => {
     const handleResize = () => {
       const { innerWidth: width, innerHeight: height } = window

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import 'src/assets/css/Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,60 +8,63 @@ import { Input } from 'antd'
 import Search from './Search'
 import useDimensions from 'src/hooks/useDimensions'
 import styles from 'src/assets/css/Navbar.module.scss'
+import { motion } from 'framer-motion'
+import Dialog from '../Dialog'
 
-const Navbar = () => {
+import { Drawer } from 'antd'
+import { IoMenu } from 'react-icons/io5'
+
+const browseList = ['Trang chủ', 'Phim T.hình', 'Phim', 'Mới & Phổ biến', 'Danh sách của tôi']
+const Menu = () => {
   const navigate = useNavigate()
-
-  const handleScroll = () => {
-    const navbar = document.querySelector('.header')
-    if (window.scrollY > 20) {
-      navbar.classList.add('navbar-scrolled')
-    } else {
-      navbar.classList.remove('navbar-scrolled')
-    }
+  const showDrawer = () => {
+    setOpen(true)
   }
+  const onCloseDrawer = () => {
+    setOpen(false)
+  }
+  const { isMobile, isTablet } = useDimensions()
+  const menuRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [open, setOpen] = useState(false)
 
-  window.addEventListener('scroll', handleScroll)
+  const onMenu = () => {
+    setIsVisible(true)
+  }
+  const onClose = () => {
+    setIsVisible(false)
+  }
 
   return (
     <>
-      <div className='header'>
-        <div className='grid wide'></div>
-        <nav className='header__navbar'>
-          <ul className='header__navbar-list'>
-            <li className='header__navbar-item'>
-              <img
-                onClick={() => {
-                  navigate('/home')
-                }}
-                className='logo '
-                src='https://media.twofour54.com/sites/5/2019/10/netflix-768x583.jpg'
-                alt=''
-              />
-            </li>
-            <li className='header__navbar-item active'>
-              <Link to='/home'>Trang chủ</Link>
-            </li>
-            <li className='header__navbar-item'>
-              <a href=''>Phim T.hình</a>
-            </li>
-            <li className='header__navbar-item'>
-              <a href=''>Phim</a>
-            </li>
-            <li className='header__navbar-item'>
-              <a href=''>Mới & Phổ biến</a>
-            </li>
-            <li className='header__navbar-item'>
-              <a href=''>Danh sách của tôi</a>
-            </li>
-            <li className='header__navbar-item'>
-              <a href=''>Duyệt tìm theo ngôn ngữ</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      {isMobile || isTablet ? (
+        <>
+          <IoMenu onClick={showDrawer} className='text-5xl' />
+          <Drawer onClose={onCloseDrawer} open={open}>
+            <ul className='list-genre flex flex-col gap-10 '>
+              {browseList.map((item, index) => (
+                <li
+                  key={index}
+                  className={styles.options}
+                  onClick={() => {
+                    navigate('/home')
+                  }}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Drawer>
+        </>
+      ) : (
+        browseList.map((item, index) => (
+          <li key={index} className={styles.options}>
+            {item}
+          </li>
+        ))
+      )}
     </>
   )
 }
 
-export default Navbar
+export default Menu

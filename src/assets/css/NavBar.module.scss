@@ -5,15 +5,14 @@
     background-image: linear-gradient(to bottom, $navBar-transparent 10%, $navBar-gradient);
     transition: all 0.2s ease-out;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
     position: sticky;
     padding: 0.8rem;
     top: 0;
+    width: 100%;
     overflow: hidden;
-
     @include for-mobile-only {
         padding: 0.6rem 0rem;
     }
@@ -63,13 +62,13 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
-
+            font-size: 1.5rem;
+            &:hover {
+                color: red;
+                text-decoration: underline;
+            }
             @include for-mobile-only {
                 margin: 0 0.2rem;
-            }
-
-            &:hover {
-                color: $white-hover;
             }
         }
 
@@ -106,7 +105,7 @@
             margin: 0 0.2rem;
             cursor: pointer;
             transition: linear 200ms ease-in;
-
+            font-size: 2rem;
             @include for-mobile-only {
                 padding: 0.1rem;
                 margin: 0;

@@ -140,16 +140,16 @@
 
   .banner__contents-title {
     margin-top: 50px;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
 
   .banner__description {
-    font-size: 0.8rem;
+    font-size: 0.96rem;
   }
 
   .banner__button {
     width: 80px;
     height: 25px;
-    font-size: 0.8rem;
+    font-size: 0.98rem;
   }
 }
