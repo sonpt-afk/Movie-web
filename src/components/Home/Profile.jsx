@@ -1,7 +1,7 @@
 import React from 'react'
 import 'src/assets/css/Profile.css'
-import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom'
+import Navbar from './NavBar/Menu'
 const Profile = () => {
   const navigate = useNavigate()
   return (
@@ -9,17 +9,11 @@ const Profile = () => {
       <Navbar></Navbar>
       <div className='profile-page'>
         <div className='profile-container'>
-          <h1 className='profile-age-title'>Edit Profile</h1>
+          <h1 className='profile-age-title'>Thông tin tài khoản</h1>
 
           <div className='profile-container-info'>
-            <div className='profile-container-ava-email'>
-              <img
-                onClick={() => navigate('/profile')}
-                alt=''
-                src='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/017lok-ons-mas-dsk-02-0-1574179195.jpg'
-                className='header__navbar-user-img'
-              />
-              <input className='profile-email' type='text' value='s@mail.com' />
+            <div className='profile-container-ava-email 	'>
+              <input className='profile-email' type='text' value='abc@mail.com' />
             </div>
             <h2 className='profile-current-plan'>Plans(Current Plan: premium)</h2>
             <p className='profile-renew-date'>Renewal date: 9/9/2024</p>

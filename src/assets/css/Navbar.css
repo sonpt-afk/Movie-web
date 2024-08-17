@@ -5,8 +5,7 @@
 }
 
 .logo {
-  width: 100px;
-  height: 45px;
+  width: 180px;
   margin: 0 30px;
 }
 .active {
@@ -69,7 +68,7 @@
 }
 
 .header__navbar-user-arrow-down {
-  content: "";
+  content: '';
   border: 5px solid;
   border-color: #fff transparent transparent transparent;
   position: absolute;
@@ -96,7 +95,7 @@
 }
 
 .header__navbar-user-menu::before {
-  content: "";
+  content: '';
   border: 7px solid;
   border-color: transparent transparent var(--white-color) transparent;
   position: absolute;
@@ -105,7 +104,7 @@
 }
 
 .header__navbar-user-menu::after {
-  content: "";
+  content: '';
   position: absolute;
   right: 6px;
   top: -18px;
@@ -199,7 +198,7 @@
 }
 
 .header__notify::before {
-  content: "";
+  content: '';
   border: 10px solid;
   border-color: transparent transparent #ccc transparent;
   position: absolute;

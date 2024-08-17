@@ -2,18 +2,24 @@ import React, { useEffect, useState } from 'react'
 import axios from 'src/axios'
 import requests from 'src/requests'
 import 'src/assets/css/Banner.css'
+import { Link, useNavigate } from 'react-router-dom'
+
 function Banner() {
   const [movie, setMovie] = useState([])
+  const nav = useNavigate()
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals)
+      const request = await axios.get(requests.fetchActionMovies)
       setMovie(request.data.results[Math.floor(Math.random() * request.data.results.length)])
       return request
     }
 
     fetchData()
+
+    console.log('movie', movie)
   }, [])
+
   return (
     <div
       className='banner'
@@ -28,7 +34,15 @@ function Banner() {
 
         <h1 className='banner__description'>{movie?.overview}</h1>
         <div className='banner__buttons'>
-          <button className='banner__button btn-play'>Phát</button>
+          <button
+            className='banner__button btn-play'
+            onClick={() => {
+              nav(`/player/${movie?.id}`)
+              console.log('sadfds')
+            }}
+          >
+            Phát
+          </button>
           <button className='banner__button btn-info'>Thông tin khác</button>
         </div>
       </div>

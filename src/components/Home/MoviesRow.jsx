@@ -2,12 +2,10 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import 'src/assets/css/MoviesRow.css'
 import axios from 'src/axios'
-import Youtube from 'react-youtube'
-import movieTrailer from 'movie-trailer'
+import { Link, useNavigate } from 'react-router-dom'
 function MoviesRow({ title, fetchUrl }) {
   const [movies, setMovies] = useState([])
-  const [trailerUrl, setTrailerUrl] = useState('')
-
+  const nav = useNavigate()
   const base_url = 'https://image.tmdb.org/t/p/original/'
   useEffect(() => {
     async function fetchData() {
@@ -27,17 +25,8 @@ function MoviesRow({ title, fetchUrl }) {
     }
   }
 
-  const handleClick = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl('')
-    } else {
-      movieTrailer(movie?.name || '')
-        .then((url) => {
-          const urlParams = new URLSearchParams(new URL(url).search)
-          setTrailerUrl(urlParams.get('v'))
-        })
-        .catch((error) => console.log(error))
-    }
+  const handleClick = (id) => {
+    nav(`/player/${id}`)
   }
   return (
     <div className='movie-row-container'>
@@ -50,11 +39,12 @@ function MoviesRow({ title, fetchUrl }) {
             key={`${movie.id}`}
             src={`${base_url}${movie.poster_path}`}
             alt={movie.name}
-            onClick={() => handleClick(movie)}
+            onClick={() => {
+              handleClick(movie.id)
+            }}
           />
         ))}
       </div>
-      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
     </div>
   )
 }
