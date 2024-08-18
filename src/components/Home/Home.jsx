@@ -29,16 +29,7 @@ function Home() {
     nav(`/player/${id}`)
   }
   const nav = useNavigate()
-  useEffect(() => {
-    if (!localStorage.getItem('persist:root')) {
-      toast.error('Vui lòng đăng nhập trước !')
 
-      setTimeout(() => {
-        nav('/')
-      }, 2000)
-    } else {
-    }
-  })
   return (
     <>
       <div className='app '>

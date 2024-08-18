@@ -3,7 +3,7 @@ import Search from './Search'
 import { useState } from 'react'
 import Account from './Account'
 import React from 'react'
-import styles from 'src/assets/css/Navbar.module.scss'
+import styles from 'src/assets/css/NavBar.module.scss'
 import { motion } from 'framer-motion'
 
 const NavBar = ({ onSearch, isScrolled }) => {
