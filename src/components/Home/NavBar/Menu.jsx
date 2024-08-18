@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faMagnifyingGlass, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 import useDimensions from 'src/hooks/useDimensions'
-import styles from 'src/assets/css/Navbar.module.scss'
+import styles from 'src/assets/css/NavBar.module.scss'
 
 import { Drawer } from 'antd'
 import { IoMenu } from 'react-icons/io5'
@@ -22,7 +22,6 @@ const Menu = () => {
   const { isMobile, isTablet } = useDimensions()
   const [isVisible, setIsVisible] = useState(false)
   const [open, setOpen] = useState(false)
-
 
   return (
     <>
