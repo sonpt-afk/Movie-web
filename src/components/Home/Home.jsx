@@ -13,6 +13,9 @@ import Navbar from './NavBar'
 import { useSelector, useDispatch } from 'react-redux'
 import userSlice from 'src/userSlice'
 import Search from './NavBar/Search'
+import { useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer, toast } from 'react-toastify'
 
 function Home() {
   const [resultsFromSearch, setResultsFromSearch] = useState(null)
@@ -25,7 +28,17 @@ function Home() {
   const handleClick = (id) => {
     nav(`/player/${id}`)
   }
+  const nav = useNavigate()
+  useEffect(() => {
+    if (!localStorage.getItem('persist:root')) {
+      toast.error('Vui lòng đăng nhập trước !')
 
+      setTimeout(() => {
+        nav('/')
+      }, 2000)
+    } else {
+    }
+  })
   return (
     <>
       <div className='app '>

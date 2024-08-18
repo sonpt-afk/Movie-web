@@ -11,7 +11,7 @@ function MoviesRow({ title, fetchUrl }) {
   const [loading, setLoading] = useState(true)
   const nav = useNavigate()
   const base_url = 'https://image.tmdb.org/t/p/original/'
-  const [size, setSize] = useState('default')
+  const [size, setSize] = useState('large')
 
   useEffect(() => {
     function fetchData() {
@@ -46,7 +46,7 @@ function MoviesRow({ title, fetchUrl }) {
     <>
       {loading ? (
         <div className='movie-row-container'>
-          <h2 className='text-2xl	'>{title}</h2>
+          <h2 className='text-4xl text-bold	'>{title}</h2>
           <div className='movie-row-posters'>
             <Row gutter={[0, 15]} className=''>
               <Col span={3}>

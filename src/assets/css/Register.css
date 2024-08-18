@@ -46,16 +46,19 @@
   width: 100%;
 } */
 .header-content {
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header-right {
-  display: inline-flex;
-  margin-right: 30px;
-  width: 295px;
-  height: 30px;
-  gap: 20px;
+@media screen and (max-width: 768px) {
+  .header-content {
+    justify-content: space-around;
+    gap: 60px;
+    align-items: center;
+    display: flex;
+    margin-top: 40px;
+  }
 }
 .header-right select {
   width: 147px;
@@ -72,7 +75,7 @@
 .header-right select option:hover {
   cursor: pointer;
 }
-.header-right button {
+.header-right-button {
   background-color: red;
   border: none;
   width: 120px;
@@ -80,8 +83,6 @@
   border-radius: 5px;
   color: white;
   font-size: 1.5rem;
-  position: absolute;
-  right: 20px;
 }
 .header-right button:hover {
   cursor: pointer;

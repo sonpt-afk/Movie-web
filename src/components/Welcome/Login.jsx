@@ -8,21 +8,25 @@ import { login } from 'src/services/auth'
 import { usernameRule, emailRule, passwordRule, rePasswordRule } from 'src/common/rules'
 import { Button, Checkbox, Form, Input } from 'antd'
 import { Spin } from 'antd'
-
+import { setUserAccess } from 'src/redux/auth'
+import { useDispatch } from 'react-redux'
 function Login() {
   const [loading, setLoading] = useState(false)
-
+  const dispatch = useDispatch()
   const nav = useNavigate()
   const onFinish = async (values) => {
     setLoading(true) // Set loading to true when API call starts
 
     try {
-      var data = await login(values)
-      const token = data.jwt
-      const user = data.user
-      localStorage.setItem('token', token)
-      localStorage.setItem('user', JSON.stringify(user))
+      let { jwt, user } = await login(values)
+      dispatch(
+        setUserAccess({
+          token: jwt,
+          user: user
+        })
+      )
       toast.success('Logged in successfully!')
+
       nav('/home')
     } catch (err) {
       toast.error('Login failed, try again please !')
@@ -55,7 +59,7 @@ function Login() {
         size='large'
       >
         <div className='page'>
-          <div className='container  max-w-1/4 rounded-lg	 bg-white my-6 p-2 flex align-center justify-center  h-1/3	w-1/3	 mx-auto'>
+          <div className='container  max-w-1/2 rounded-lg	 bg-white my-6  flex align-center justify-center  h-1/2	w-1/2	 mx-auto'>
             <Form
               className='	flex flex-col	'
               name='basic'
@@ -74,11 +78,21 @@ function Login() {
             >
               <h1 className='text-center text-5xl mb-10	font-bold	'>Sign In</h1>
 
-              <Form.Item label='Email' name='identifier' rules={emailRule}>
+              <Form.Item
+                label='Email'
+                name='identifier'
+                rules={emailRule}
+                labelCol={{ className: 'text-4xl font-semibold ' }}
+              >
                 <Input />
               </Form.Item>
 
-              <Form.Item label='Password' name='password' rules={passwordRule}>
+              <Form.Item
+                label='Password'
+                name='password'
+                rules={passwordRule}
+                labelCol={{ className: 'text-4xl font-semibold ' }}
+              >
                 <Input.Password />
               </Form.Item>
 
@@ -88,13 +102,16 @@ function Login() {
                   span: 16
                 }}
               >
-                <Button type='primary' htmlType='submit' className=' text-3xl 	'>
+                <Button type='primary' htmlType='submit' className=' text-3xl w-6/10 absolute right-1/2	text-center'>
                   Đăng nhập
                 </Button>
               </Form.Item>
               <h4 className='my-5  '>
-                <span className='container-footer-question text-3xl  text-red-600'>Mới sử dụng Netflix?</span>
-                <Link to='/' className='signup-link text-3xl mx-3'>
+                <span className='container-footer-question sm:text-2xl lg:text-4xl text-center text-red-600'>
+                  Mới sử dụng Netflix?
+                </span>
+                <br />
+                <Link to='/' className='signup-link sm:text-2xl lg:text-4xl mx-3 text-center'>
                   Đăng ký ngay
                 </Link>
               </h4>

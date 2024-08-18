@@ -1,15 +1,11 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import 'src/assets/css/Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faMagnifyingGlass, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
-import { Input } from 'antd'
-import Search from './Search'
 import useDimensions from 'src/hooks/useDimensions'
 import styles from 'src/assets/css/Navbar.module.scss'
-import { motion } from 'framer-motion'
-import Dialog from '../Dialog'
 
 import { Drawer } from 'antd'
 import { IoMenu } from 'react-icons/io5'
@@ -24,31 +20,25 @@ const Menu = () => {
     setOpen(false)
   }
   const { isMobile, isTablet } = useDimensions()
-  const menuRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
   const [open, setOpen] = useState(false)
 
-  const onMenu = () => {
-    setIsVisible(true)
-  }
-  const onClose = () => {
-    setIsVisible(false)
-  }
 
   return (
     <>
       {isMobile || isTablet ? (
         <>
-          <IoMenu onClick={showDrawer} className='text-5xl' />
+          <IoMenu onClick={showDrawer} className='text-5xl mx-3' />
           <Drawer onClose={onCloseDrawer} open={open}>
-            <ul className='list-genre flex flex-col gap-10 '>
+            <ul className='flex flex-col gap-10 w-fit p-4'>
               {browseList.map((item, index) => (
                 <li
                   key={index}
-                  className={styles.options}
                   onClick={() => {
                     navigate('/home')
+                    onCloseDrawer()
                   }}
+                  className='h-1/4 p-4 bg-red-500 text-bold text-4xl text-white'
                 >
                   {item}
                 </li>
@@ -58,7 +48,14 @@ const Menu = () => {
         </>
       ) : (
         browseList.map((item, index) => (
-          <li key={index} className={styles.options}>
+          <li
+            key={index}
+            className={styles.options}
+            onClick={() => {
+              navigate('/home')
+              onCloseDrawer()
+            }}
+          >
             {item}
           </li>
         ))

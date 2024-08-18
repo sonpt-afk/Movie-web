@@ -2,8 +2,13 @@ import React from 'react'
 import 'src/assets/css/Profile.css'
 import { useNavigate } from 'react-router-dom'
 import NavBar from './NavBar'
+import { FaUserCircle } from 'react-icons/fa'
+import { useSelector } from 'react-redux'
+
 const Profile = () => {
   const navigate = useNavigate()
+  const user = useSelector((state) => state.auth.user)
+
   return (
     <>
       <NavBar></NavBar>
@@ -14,7 +19,7 @@ const Profile = () => {
 
           <div className='profile-container-info'>
             <div className='profile-container-ava-email 	'>
-              <input className='profile-email' type='text' value='abc@mail.com' />
+              <input className='profile-email' type='text' value={user.email} />
             </div>
             <h2 className='profile-current-plan'>Plans(Current Plan: premium)</h2>
             <p className='profile-renew-date'>Renewal date: 9/9/2024</p>

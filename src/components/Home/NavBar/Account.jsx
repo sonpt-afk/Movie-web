@@ -6,19 +6,20 @@ import 'src/assets/css/Navbar.css'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell, faMagnifyingGlass, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-
+import { useSelector } from 'react-redux'
+import { Tooltip } from 'antd'
+import { FaUserCircle } from 'react-icons/fa'
 const Account = () => {
   const navigate = useNavigate()
+  const user = useSelector((state) => state.auth.user)
+  console.log('user', user)
+
   return (
     <div>
       <ul className='header__navbar-list-right'>
-        <li className='header__navbar-item header__navbar-user' onClick={() => navigate('/profile')}>
-          <img
-            alt=''
-            src='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/017lok-ons-mas-dsk-02-0-1574179195.jpg'
-            className='header__navbar-user-img'
-          />
-          <FontAwesomeIcon className='header-icon' icon={faAngleDown} />
+        <li className='header__navbar-item header__navbar-user gap-3' onClick={() => navigate('/profile')}>
+          <FaUserCircle className='text-4xl' />
+          <p className='text-2xl'>{user.username}</p>
         </li>
       </ul>
     </div>
