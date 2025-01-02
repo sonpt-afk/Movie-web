@@ -57,11 +57,13 @@ function Home() {
         ) : (
           <>
             <Banner></Banner>
+            <div className="movies-rows-container">
 
             <MoviesRow title='Action Movies' fetchUrl={requests.fetchActionMovies}></MoviesRow>
             <MoviesRow title='Comedy Movies' fetchUrl={requests.fetchComedyMovies}></MoviesRow>
             <MoviesRow title='Horror Movies' fetchUrl={requests.fetchHorrorMovies}></MoviesRow>
             <MoviesRow title='Romance Movies' fetchUrl={requests.fetchRomanceMovies}></MoviesRow>
+            </div>
           </>
         )}
       </div>

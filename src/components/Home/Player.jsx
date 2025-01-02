@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import 'src/assets/css/Player.css'
 import axios from 'axios'
+import { Button } from 'antd'
+import moment from 'moment'
+
 const Player = () => {
   const { id } = useParams()
+  const nav = useNavigate()
   const [apiData, setApiData] = useState({
     name: '',
     key: '',
@@ -29,7 +33,12 @@ const Player = () => {
   })
 
   return (
+    <>
+    <Button  className='back-btn' onClick={()=>{
+nav('/home')
+    }}>Quay về trang chủ</Button>
     <div className='player'>
+
       <iframe
         width='80%'
         height='80%'
@@ -39,11 +48,12 @@ const Player = () => {
         frameborder='0'
       ></iframe>
       <div className='player-info text-white'>
-        <p>{apiData.published_at}</p>
-        <p>{apiData.name}</p>
-        <p>{apiData.type}</p>
+        
+        <b>{apiData.name}</b>
+        <p className="infoHeading">Ngày chiếu phim: {moment(apiData.published_at).format('DD-MM-YYYY hh:mm A')}</p>
       </div>
     </div>
+    </>
   )
 }
 

@@ -19,7 +19,7 @@ const Account = () => {
       <ul className='header__navbar-list-right'>
         <li className='header__navbar-item header__navbar-user gap-3' onClick={() => navigate('/profile')}>
           <FaUserCircle className='text-4xl' />
-          <p className='text-2xl'>{user.username}</p>
+          <p className='text-2xl'>{user?.email?.split('@')[0]}</p>
         </li>
       </ul>
     </div>

@@ -18,7 +18,8 @@ function Login() {
     setLoading(true) // Set loading to true when API call starts
 
     try {
-      let { jwt, user } = await login(values)
+      let response = await login(values)
+      let { jwt, user } = await response?.data
       dispatch(
         setUserAccess({
           token: jwt,
@@ -80,7 +81,7 @@ function Login() {
 
               <Form.Item
                 label='Email'
-                name='identifier'
+                name='email'
                 rules={emailRule}
                 labelCol={{ className: 'text-4xl font-semibold ' }}
               >

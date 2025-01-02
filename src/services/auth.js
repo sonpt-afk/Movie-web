@@ -1,16 +1,16 @@
 import axios from 'axios'
 
 export const register = async (infoUser) => {
-  const response = await axios.post(`/auth/local/register`, infoUser)
+  const response = await axios.post(`/register`, infoUser)
   return response.data
 }
 
 export const login = async (infoUser) => {
-  const response = await axios.post(`/auth/local`, infoUser)
+  const response = await axios.post(`/login`, infoUser)
   return response.data
 }
 export const getMeWithToken = async (token) => {
-  const response = await axios.get(`/users/me?populate=role`, {
+  const response = await axios.get(`/user`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -19,6 +19,6 @@ export const getMeWithToken = async (token) => {
 }
 
 export const getMe = async () => {
-  const response = await axios.get(`/users/me?populate=role`)
+  const response = await axios.get(`/user`)
   return response.data
 }

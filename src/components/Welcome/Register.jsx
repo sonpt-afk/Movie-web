@@ -101,9 +101,7 @@ function Register() {
                   onFinishFailed={onFinishFailed}
                   autoComplete='off'
                 >
-                  <Form.Item label='Username' name='username' rules={usernameRule}>
-                    <Input />
-                  </Form.Item>
+                  
                   <Form.Item label='Email' name='email' rules={emailRule}>
                     <Input />
                   </Form.Item>
@@ -111,7 +109,7 @@ function Register() {
                   <Form.Item label='Password' name='password' rules={passwordRule}>
                     <Input.Password />
                   </Form.Item>
-                  <Form.Item label='Nhập lại pass:' name='rePassword' rules={rePasswordRule}>
+                  <Form.Item label='Nhập lại password:' name='rePassword' rules={rePasswordRule}>
                     <Input.Password />
                   </Form.Item>
 

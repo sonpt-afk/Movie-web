@@ -2,11 +2,26 @@
   height: 100vh;
 }
 
-.main-film__featured__intro p {
+.movies-rows-container {
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
 }
-.main-film__premiere {
+
+.movies-rows-container::-webkit-scrollbar-track {
+  background: transparent;
 }
-.main-film__continue {
+
+.movies-rows-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
 }
-.main-film__topvn {
+
+@media screen and (max-width: 768px) {
+  .movies-rows-container {
+    height: calc(100vh - 60px); /* Adjust based on your header height */
+    padding-bottom: 20px;
+  }
 }
