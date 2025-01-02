@@ -26,11 +26,11 @@ function Login() {
           user: user
         })
       )
-      toast.success('Logged in successfully!')
+      toast.success('Đăng nhập thành công!')
 
       nav('/home')
-    } catch (err) {
-      toast.error('Login failed, try again please !')
+} catch (err) {
+  toast.error('Đăng nhập không thành công, kiểm tra email/pass và thử lại!')
 
       console.log(err)
     }
@@ -40,17 +40,7 @@ function Login() {
     console.log('Failed:', errorInfo)
   }
 
-  // const login = (e) => {
-  //   e.preventDefault()
-  //   auth
-  //     .signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-  //     .then((authUser) => {
-  //       toast.success('Logged in successfully!')
-  //     })
-  //     .catch((error) => {
-  //       toast.error('Login failed, try again please !')
-  //     })
-  // }
+ 
   return (
     <>
       <Spin

@@ -17,11 +17,11 @@ function Register() {
     setLoading(true) // Set loading to true when API call starts
     try {
       await register(values)
-      toast.success('Register successfully!')
+      toast.success('Đăng ký  thành công!')
       setLoading(false) // Set loading to false before navigation
       nav('/login')
     } catch (err) {
-      toast.error('Register failed, try again please !')
+      toast.error('Đăng ký không thành công, email đã tồn tại, vui lòng thử lại!')
 
       console.log(err)
     }
