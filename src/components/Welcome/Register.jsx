@@ -88,12 +88,8 @@ function Register() {
                 <Form
                   name='basic'
                   className=''
-                  labelCol={{
-                    span: 8
-                  }}
-                  wrapperCol={{
-                    span: 16
-                  }}
+                  layout='vertical'
+             
                   initialValues={{
                     remember: true
                   }}
