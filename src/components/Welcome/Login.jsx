@@ -49,9 +49,9 @@ function Login() {
         size='large'
       >
         <div className='page'>
-          <div className='container  pt-5 pb-5 max-w-1/2 rounded-lg	 bg-white my-6  flex align-center justify-center  h-1/2	w-1/2	 mx-auto'>
+          <div className='container  max-w-1/2 rounded-lg	 bg-white my-6  flex align-center justify-center  h-1/2	w-1/2	 mx-auto'>
             <Form
-              className='	flex flex-col	'
+              className='	flex flex-col	 pt-5 pb-5'
               name='basic'
               labelCol={{
                 span: 8
