@@ -29,8 +29,8 @@ function Login() {
       toast.success('Đăng nhập thành công!')
 
       nav('/home')
-} catch (err) {
-  toast.error('Đăng nhập không thành công, kiểm tra email/pass và thử lại!')
+    } catch (err) {
+      toast.error('Đăng nhập không thành công, kiểm tra email/pass và thử lại!')
 
       console.log(err)
     }
@@ -40,7 +40,6 @@ function Login() {
     console.log('Failed:', errorInfo)
   }
 
- 
   return (
     <>
       <Spin
@@ -50,7 +49,7 @@ function Login() {
         size='large'
       >
         <div className='page'>
-          <div className='container  max-w-1/2 rounded-lg	 bg-white my-6  flex align-center justify-center  h-1/2	w-1/2	 mx-auto'>
+          <div className='container  pt-5 pb-5 max-w-1/2 rounded-lg	 bg-white my-6  flex align-center justify-center  h-1/2	w-1/2	 mx-auto'>
             <Form
               className='	flex flex-col	'
               name='basic'

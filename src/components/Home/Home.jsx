@@ -40,6 +40,7 @@ function Home() {
               <div className='absolute flex flex-wrap  '>
                 {resultsFromSearch.map((movie) => (
                   <img
+                    loading='eager'
                     className='movie-row-poster'
                     key={`${movie.id}`}
                     src={`${base_url}${movie.poster_path}`}
@@ -57,12 +58,11 @@ function Home() {
         ) : (
           <>
             <Banner></Banner>
-            <div className="movies-rows-container">
-
-            <MoviesRow title='Action Movies' fetchUrl={requests.fetchActionMovies}></MoviesRow>
-            <MoviesRow title='Comedy Movies' fetchUrl={requests.fetchComedyMovies}></MoviesRow>
-            <MoviesRow title='Horror Movies' fetchUrl={requests.fetchHorrorMovies}></MoviesRow>
-            <MoviesRow title='Romance Movies' fetchUrl={requests.fetchRomanceMovies}></MoviesRow>
+            <div className='movies-rows-container'>
+              <MoviesRow title='Action Movies' fetchUrl={requests.fetchActionMovies}></MoviesRow>
+              <MoviesRow title='Comedy Movies' fetchUrl={requests.fetchComedyMovies}></MoviesRow>
+              <MoviesRow title='Horror Movies' fetchUrl={requests.fetchHorrorMovies}></MoviesRow>
+              <MoviesRow title='Romance Movies' fetchUrl={requests.fetchRomanceMovies}></MoviesRow>
             </div>
           </>
         )}
